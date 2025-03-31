@@ -1,0 +1,10 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+body {
+    background-color: #3e1003; /* Atau coba #eef2f5 */
+}
+.card-title {
+    white-space: normal;
+    word-break: break-word;
+}
