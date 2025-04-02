@@ -127,11 +127,6 @@
         @yield('content')
     </main>
 
-    {{-- Footer --}}
-    <footer class="text-center py-3 text-muted small mt-auto footer">
-        &copy; {{ date('Y') }} Event Petra. All rights reserved.
-    </footer>
-
     {{-- Dark Mode Toggle Script --}}
     <script>
         const toggle = document.getElementById('darkModeToggle');
