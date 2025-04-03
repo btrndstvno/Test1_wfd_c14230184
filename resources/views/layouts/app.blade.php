@@ -102,10 +102,18 @@
     {{-- Navbar --}}
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm mb-4" id="main-navbar" style="background-color: #4A90E2;">
         <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand fw-bold text-white" href="{{ route('promotions.index') }}">
+            <div class="d-flex align-items-center gap-4">
+                {{-- Logo --}}
                 <img src="{{ asset('logo/LogoPetra.jpg') }}" alt="LogoPetra" style="height: 60px; width: auto;">
-            </a>
 
+                {{-- Menu Nav (Home & About Us) --}}
+                <div class="d-flex gap-3">
+                    <a href="{{ route('promotions.index') }}" class="text-white text-decoration-none fs-5">Home</a>
+                    <a href="#about" class="text-white text-decoration-none fs-5">About Us</a>
+                </div>
+            </div>
+
+            {{-- Dark Mode & Tambah Event --}}
             <div class="d-flex align-items-center gap-3">
                 {{-- Toggle Dark Mode --}}
                 <div id="darkModeToggle" class="relative w-14 h-8 bg-gray-300 rounded-full flex items-center justify-between px-1 cursor-pointer transition-colors duration-300">
@@ -114,7 +122,7 @@
                     <div class="dot absolute top-1 left-1 w-6 h-6 bg-white rounded-full shadow-md"></div>
                 </div>
 
-                {{-- Tombol Tambah Promosi --}}
+                {{-- Tombol Tambah Event --}}
                 <a href="{{ route('promotions.create') }}" class="btn" style="background-color: #2D2D2D; color: #FFD700;">
                     + Tambah Event
                 </a>
@@ -123,9 +131,22 @@
     </nav>
 
     {{-- Konten --}}
-    <main class="container">
+    <main class="container mb-3">
         @yield('content')
     </main>
+
+    {{-- Footer --}}
+    <footer id="about" class="w-full bg-[#4A90E2] text-white py-10 px-10 mt-16">
+        <div class="max-w-7xl mx-auto text-left">
+            <h2 class="text-3xl font-bold mb-2">Petra Event</h2>
+            <p class="text-lg leading-relaxed">
+                Sebuah website di mana semua info tentang event yang dilaksanakan oleh PCU dikumpulkan di sini.
+            </p>
+        </div>
+    </footer>
+    
+    
+    
 
     {{-- Dark Mode Toggle Script --}}
     <script>
@@ -148,6 +169,17 @@
             } else {
                 localStorage.setItem('darkMode', 'disabled');
             }
+        });
+    </script>
+
+    {{-- Smooth scroll for About Us --}}
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href'))
+                    .scrollIntoView({ behavior: 'smooth' });
+            });
         });
     </script>
 </body>
